@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seattle EV Charging Site Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>⚡ Seattle EV Charging Station Site Selection</h1>
+                <p class="subtitle">Data-driven analysis for optimal charging infrastructure placement</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="total-sites">—</div>
+                    <div class="stat-label">Candidate Sites</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="high-priority">—</div>
+                    <div class="stat-label">High Priority</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="visible-sites">—</div>
+                    <div class="stat-label">Visible</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Sidebar Controls -->
+            <aside class="sidebar">
+                <div class="panel">
+                    <h2>🎯 Priority Filtering</h2>
+                    <div class="filter-group">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="filter-high" checked>
+                            <span class="checkbox-custom high"></span>
+                            <span>High Priority (Score 50+)</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="filter-medium" checked>
+                            <span class="checkbox-custom medium"></span>
+                            <span>Medium Priority (35-50)</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="filter-low" checked>
+                            <span class="checkbox-custom low"></span>
+                            <span>Low Priority (&lt;35)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>📍 Site Information</h2>
+                    <div id="site-info" class="site-info">
+                        <p class="info-placeholder">Click on a site to see details</p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>🗺️ Map Controls</h2>
+                    <div class="control-buttons">
+                        <button onclick="resetView()" class="btn btn-secondary">
+                            Reset View
+                        </button>
+                        <button onclick="zoomToHighPriority()" class="btn btn-primary">
+                            Show High Priority
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel legend-panel">
+                    <h2>📊 Analysis Criteria</h2>
+                    <div class="legend-content">
+                        <p><strong>Site Priority Score based on:</strong></p>
+                        <ul>
+                            <li>Distance to existing stations</li>
+                            <li>Population density</li>
+                            <li>Traffic volume</li>
+                            <li>Commercial activity</li>
+                            <li>Public amenities</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Map Container -->
+            <main class="map-container">
+                <div id="map"></div>
+                <div id="tooltip" class="tooltip"></div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>🗺️ Built with <a href="https://felt.com" target="_blank">Felt</a> | EV Infrastructure Analysis © 2026</p>
+        </footer>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
