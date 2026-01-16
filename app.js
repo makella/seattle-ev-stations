@@ -107,13 +107,6 @@ function setupMapInteractions() {
             }
         }
     });
-
-    // Viewport change handler
-    felt.onViewportChange({
-        handler: (viewport) => {
-            console.log('Viewport changed:', viewport.zoom.toFixed(2));
-        }
-    });
 }
 
 function handleFeatureClick(feature) {
